@@ -1,0 +1,7 @@
+*.cm[oia]
+_build
+*~
+setup.data
+setup.log
+Demo.byte
+

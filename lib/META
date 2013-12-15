@@ -1,0 +1,11 @@
+# OASIS_START
+# DO NOT EDIT (digest: 23ade65d13dd0175465dd79f23015217)
+version = "0.1"
+description = "LIbrary for manipulating Hex Grid maps"
+archive(byte) = "hexgrid.cma"
+archive(byte, plugin) = "hexgrid.cma"
+archive(native) = "hexgrid.cmxa"
+archive(native, plugin) = "hexgrid.cmxs"
+exists_if = "hexgrid.cma"
+# OASIS_STOP
+

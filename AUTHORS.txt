@@ -1,0 +1,5 @@
+(* OASIS_START *)
+(* DO NOT EDIT (digest: 91cc03d8edabccc31be3f4f596e51dd0) *)
+Authors of hexgrid
+Kakadu
+(* OASIS_STOP *)

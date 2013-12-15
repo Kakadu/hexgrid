@@ -1,0 +1,5 @@
+B _build/demo
+B _build/lib
+S lib
+S demo
+PKG graphics
