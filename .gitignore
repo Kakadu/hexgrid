@@ -3,5 +3,5 @@ _build
 *~
 setup.data
 setup.log
-Demo.byte
+*.byte
 

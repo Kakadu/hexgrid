@@ -16,3 +16,10 @@ Executable "demo-hexgrid"
   BuildTools:   ocamlbuild
   BuildDepends: graphics,hexgrid
   MainIs:       Demo.ml
+
+Executable "demo-sdl"
+  Path:         sdldemo
+  BuildTools:   ocamlbuild
+  BuildDepends: hexgrid,tsdl
+  MainIs:       SdlDemo.ml
+
