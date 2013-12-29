@@ -1,5 +1,5 @@
 (* OASIS_START *)
-(* DO NOT EDIT (digest: d4a668a3129d43102044cd86b80d17ae) *)
+(* DO NOT EDIT (digest: fb4c42f133c7b9ad48dd8a03b069e317) *)
 module OASISGettext = struct
 (* # 21 "/media/disk/kakadu/prog/ocaml/oasis-0.3.0~rc6/src/oasis/OASISGettext.ml" *)
   
@@ -552,7 +552,7 @@ let package_default =
      MyOCamlbuildBase.lib_ocaml = [("hexgrid", ["lib"])];
      lib_c = [];
      flags = [];
-     includes = [("sdldemo", ["lib"]); ("demo", ["lib"])];
+     includes = [("sdldemo1", ["lib"]); ("demo", ["lib"])];
      }
   ;;
 

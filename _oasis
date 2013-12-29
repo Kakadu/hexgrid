@@ -3,7 +3,7 @@ Name:        hexgrid
 Version:     0.1
 Synopsis:    LIbrary for manipulating Hex Grid maps
 Authors:     Kakadu
-License:     LGPL-3.0 with OCaml linking exception
+License:     BSD3
 Plugins:     DevFiles (0.3), META (0.3), StdFiles (0.3)
 
 Library hexgrid
@@ -17,9 +17,9 @@ Executable "demo-hexgrid"
   BuildDepends: graphics,hexgrid
   MainIs:       Demo.ml
 
-Executable "demo-sdl"
-  Path:         sdldemo
+Executable "demo-sdl1"
+  Path:         sdldemo1
   BuildTools:   ocamlbuild
   BuildDepends: hexgrid,tsdl
-  MainIs:       SdlDemo.ml
+  MainIs:       SdlDemo1.ml
 
