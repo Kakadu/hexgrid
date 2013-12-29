@@ -4,7 +4,7 @@ Version:     0.1
 Synopsis:    LIbrary for manipulating Hex Grid maps
 Authors:     Kakadu
 License:     BSD3
-Plugins:     DevFiles (0.3), META (0.3), StdFiles (0.3)
+Plugins:     DevFiles (0.3), META (0.3)
 
 Library hexgrid
   Path:       lib
