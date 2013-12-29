@@ -45,9 +45,11 @@ module Make (Item: CELLITEM) (MainSizes: SIZE) = struct
     let a = 2. *. r
   end
 
-  let get ~left ~top t = CellHash.find t (IntPair.make left top)
+  let get ~left ~top t = 
+    try Some (CellHash.find t (IntPair.make left top))
+    with Not_found -> None
 
-  let toScreen ~left ~top =
+  let to_screen ~left ~top =
     let x = float_of_int left in
     let y = float_of_int top in
     let ansy = y *. Sizes.(h +. s) in

@@ -17,7 +17,7 @@ let movetof x y = moveto (int_of_float x) (int_of_float y)
 let linetof x y = lineto (int_of_float x) (int_of_float y)
 
 let paint_cell ~left ~top =
-  let (x,y) = Map.toScreen ~left ~top in
+  let (x,y) = Map.to_screen ~left ~top in
   (*printf "x = %f, y = %f\n%!" x y;*)
   let open Map.Sizes in
   movetof (x +. a /. 2.) y;
