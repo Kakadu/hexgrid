@@ -1,5 +1,5 @@
 # OASIS_START
-# DO NOT EDIT (digest: 25a13f0346dc3a4d1f30ca4621972cfe)
+# DO NOT EDIT (digest: 0f10f677985cb1d914f32d205cf82da9)
 # Ignore VCS directories, you can use the same kind of rule outside 
 # OASIS_START/STOP if you want to exclude directories that contains 
 # useless stuff for the build process
@@ -15,15 +15,27 @@
 "_darcs": not_hygienic
 # Library hexgrid
 "lib/hexgrid.cmxs": use_hexgrid
+# Library helpers
+"helpers/helpers.cmxs": use_helpers
+<helpers/*.ml{,i}>: pkg_tsdl
 # Executable demo-hexgrid
 "demo/Demo.byte": use_hexgrid
 "demo/Demo.byte": pkg_graphics
 <demo/*.ml{,i}>: use_hexgrid
 <demo/*.ml{,i}>: pkg_graphics
+# Executable demo-sdl
+"sdldemo/SdlDemo.byte": use_hexgrid
+"sdldemo/SdlDemo.byte": use_helpers
+"sdldemo/SdlDemo.byte": pkg_tsdl
+<sdldemo/*.ml{,i}>: use_hexgrid
+<sdldemo/*.ml{,i}>: use_helpers
+<sdldemo/*.ml{,i}>: pkg_tsdl
 # Executable demo-sdl1
 "sdldemo1/SdlDemo1.byte": use_hexgrid
+"sdldemo1/SdlDemo1.byte": use_helpers
 "sdldemo1/SdlDemo1.byte": pkg_tsdl
 <sdldemo1/*.ml{,i}>: use_hexgrid
+<sdldemo1/*.ml{,i}>: use_helpers
 <sdldemo1/*.ml{,i}>: pkg_tsdl
 # OASIS_STOP
 <qml>: not_hygienic

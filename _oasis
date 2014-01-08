@@ -11,15 +11,26 @@ Library hexgrid
   BuildTools: ocamlbuild
   Modules:    Hexgrid
 
+Library helpers
+  Path:         helpers
+  BuildTools:   ocamlbuild
+  Modules:      Helpers
+  BuildDepends: tsdl
+
 Executable "demo-hexgrid"
   Path:         demo
   BuildTools:   ocamlbuild
   BuildDepends: graphics,hexgrid
   MainIs:       Demo.ml
 
+Executable "demo-sdl"
+  Path:         sdldemo
+  BuildTools:   ocamlbuild
+  BuildDepends: hexgrid,helpers,tsdl
+  MainIs:       SdlDemo.ml
+
 Executable "demo-sdl1"
   Path:         sdldemo1
   BuildTools:   ocamlbuild
-  BuildDepends: hexgrid,tsdl
+  BuildDepends: helpers,hexgrid,tsdl
   MainIs:       SdlDemo1.ml
-

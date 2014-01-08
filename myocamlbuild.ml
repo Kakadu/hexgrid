@@ -1,5 +1,5 @@
 (* OASIS_START *)
-(* DO NOT EDIT (digest: fb4c42f133c7b9ad48dd8a03b069e317) *)
+(* DO NOT EDIT (digest: b15896e1249170f291305cb22e548d72) *)
 module OASISGettext = struct
 (* # 21 "/media/disk/kakadu/prog/ocaml/oasis-0.3.0~rc6/src/oasis/OASISGettext.ml" *)
   
@@ -549,15 +549,21 @@ end
 open Ocamlbuild_plugin;;
 let package_default =
   {
-     MyOCamlbuildBase.lib_ocaml = [("hexgrid", ["lib"])];
+     MyOCamlbuildBase.lib_ocaml =
+       [("hexgrid", ["lib"]); ("helpers", ["helpers"])];
      lib_c = [];
      flags = [];
-     includes = [("sdldemo1", ["lib"]); ("demo", ["lib"])];
+     includes =
+       [
+          ("sdldemo1", ["helpers"; "lib"]);
+          ("sdldemo", ["helpers"; "lib"]);
+          ("demo", ["lib"])
+       ];
      }
   ;;
 
 let dispatch_default = MyOCamlbuildBase.dispatch_default package_default;;
 
-# 562 "myocamlbuild.ml"
+# 568 "myocamlbuild.ml"
 (* OASIS_STOP *)
 Ocamlbuild_plugin.dispatch dispatch_default;;

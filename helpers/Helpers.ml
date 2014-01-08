@@ -29,3 +29,6 @@ let fold_for2 ~n1 ~n2 ~m1 ~m2 ~f ~init =
     done
   done;
   !ans
+
+module StringMap = Map.Make(String)
+type texture_map = Tsdl.Sdl.texture StringMap.t

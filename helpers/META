@@ -1,0 +1,12 @@
+# OASIS_START
+# DO NOT EDIT (digest: 601b67dda95ab7bd0522cfa21ba4c921)
+version = "0.1"
+description = "LIbrary for manipulating Hex Grid maps"
+requires = "tsdl"
+archive(byte) = "helpers.cma"
+archive(byte, plugin) = "helpers.cma"
+archive(native) = "helpers.cmxa"
+archive(native, plugin) = "helpers.cmxs"
+exists_if = "helpers.cma"
+# OASIS_STOP
+
