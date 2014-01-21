@@ -34,3 +34,10 @@ Executable "demo-sdl1"
   BuildTools:   ocamlbuild
   BuildDepends: helpers,hexgrid,tsdl
   MainIs:       SdlDemo1.ml
+
+Executable "demoFPS"
+  Path:         sdldemoFPS
+  BuildTools:   ocamlbuild
+  BuildDepends: helpers,tsdl
+  MainIs:       SdlDemoFPS.ml
+
