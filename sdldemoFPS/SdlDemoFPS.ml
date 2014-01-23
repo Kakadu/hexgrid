@@ -7,7 +7,7 @@ let (>>=) a f = match a with `Error -> `Error
 let (>>) a f  = match a with `Error -> `Error
                            | `Ok x -> `Ok (f x)
 
-let app_title = "Hexgrid demo: FPS"
+let app_title = "SDL demo: FPS"
 let screen_width = 800
 let screen_height = 600
 
@@ -73,7 +73,12 @@ let main () =
   set_render_draw_color renderer 255 255 255 0 >>= fun () ->
   img_load_texture renderer "res/image.png" >>= fun image ->
 
+  TTF.init () >>= fun () ->
+  TTF.open_font "res/UbuntuMono-R.ttf" 20 >>= fun ubuntu20_font ->
+
   let timer = SDL_timer.create () in
+  let fps = ref 0 in
+
   main_loop ~poll:(fun e ->
     let x = Event.get e Event.typ in
     if (x = Event.quit) ||
@@ -84,45 +89,16 @@ let main () =
     render_clear renderer >>= fun _ ->
     render_texture_in ~texture:image ~renderer ~x:0 ~y:0 >>= fun _ ->
 
-(*    SDL_timer.check timer; *)
     if SDL_timer.check timer then begin
-      Printf.printf "FPS = %d\n%!" (SDL_timer.fps timer)
+      fps := SDL_timer.fps timer;
+      Printf.printf "FPS = %d\n%!" !fps
     end;
     SDL_timer.incr_frame timer;
 
-(*
-    (* We should select cells to drawing according to options.view_(x/y).
-     * We don't want to redraw everything.
-     *)
-    begin
-      let (n1,m1,n2,m2) =
-        (*  x1,y1         x2,y2
-         *
-         *  x3,y3         x4,y4
-         *)
-        let (x1,y1) = Map.of_screen ~mousex:options.view_x ~mousey:options.view_y in
-        let (x2,y2) = Map.of_screen ~mousex:(options.view_x+screen_width) ~mousey:options.view_y in
-        let (x3,y3) = Map.of_screen ~mousex:options.view_x ~mousey:(options.view_y+screen_height) in
-        let (x4,y4) =
-          Map.of_screen ~mousex:(options.view_x+screen_width) ~mousey:(options.view_y+screen_height) in
-        (min x1 x3 - 1, min y1 y2 - 1,
-         max x2 x4 + 1, max y3 y4 + 1)
-        (*(0,0,width_n-1,height_n-1) *)
-      in
-      paint_counter := 0;
-      fold_for2 ~n1 ~m1 ~n2 ~m2 ~init:(`Ok ()) ~f:(fun acc left top -> acc >>= fun _ ->
-        paint_cell renderer ~xoffset:options.view_x ~yoffset:options.view_y ~left ~top
-      ) >> (fun x -> printf "Paint_counter = %d\n%!" !paint_counter; x)
-    end >>= fun () ->
-    set_render_draw_color renderer 255 0 0 128 >>= fun () ->
-    render_draw_line renderer 50 50 500 250 >>= fun () ->
+    TTF.render_text_blended ubuntu20_font (sprintf "FPS: %d" !fps) MyColors.red >>= fun fontSurface ->
+    create_texture_from_surface renderer fontSurface >>= fun fontTexture ->
+    render_texture_in ~texture:fontTexture ~renderer ~x:(screen_width-75) ~y:0 >>= fun _ ->
 
-    set_render_draw_color renderer 0 255 0 128 >>= fun () ->
-    render_draw_line renderer 500 250  250 400 >>= fun () ->
-
-    set_render_draw_color renderer 0 0 255 128 >>= fun () ->
-    render_draw_line renderer 250 400 50 50 >>= fun () ->
-    *)
     set_render_draw_color renderer 0 0 0 255 >>= fun () ->
     SDL_gfx.hline_color renderer 30 530 300 (Int32.of_string "0xFF0000FF") |> ignore;
     SDL_gfx.thickLineRGBA renderer 0 400 500 450 4
@@ -134,7 +110,6 @@ let main () =
   destroy_renderer renderer;
   destroy_window w;
   `Ok ()
-
 
 let (_ : _ result) =
   match init Init.video with

@@ -47,10 +47,6 @@ let options = {
     view_y = 0;
 }
 
-module MyColors = struct
-  let red = Color.create ~r:0 ~g:255 ~b:0 ~a:255
-end
-
 let main () =
   create_window app_title ~x:300 ~y:50 ~w:screen_width ~h:screen_height Window.opengl >>= fun w ->
   create_renderer ~flags:Renderer.(accelerated + presentvsync) w >>= fun renderer ->
