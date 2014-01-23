@@ -1,5 +1,5 @@
 # OASIS_START
-# DO NOT EDIT (digest: 92a7425e97d0bab1b7bf5ab76d5a83dc)
+# DO NOT EDIT (digest: 765bb73a24855ffe578269fe4f77308e)
 # Ignore VCS directories, you can use the same kind of rule outside 
 # OASIS_START/STOP if you want to exclude directories that contains 
 # useless stuff for the build process
@@ -42,5 +42,10 @@
 "sdldemoFPS/SdlDemoFPS.byte": pkg_tsdl
 <sdldemoFPS/*.ml{,i}>: use_helpers
 <sdldemoFPS/*.ml{,i}>: pkg_tsdl
+# Executable demoSdlText
+"sdlTextDemo/SdlTextDemo.byte": use_helpers
+"sdlTextDemo/SdlTextDemo.byte": pkg_tsdl
+<sdlTextDemo/*.ml{,i}>: use_helpers
+<sdlTextDemo/*.ml{,i}>: pkg_tsdl
 # OASIS_STOP
 <qml>: not_hygienic

@@ -1,5 +1,5 @@
 (* OASIS_START *)
-(* DO NOT EDIT (digest: d5b549364b46e6876a5044b31d43e35d) *)
+(* DO NOT EDIT (digest: 04591f26b738ef82b152add64df15f9d) *)
 module OASISGettext = struct
 (* # 21 "/media/disk/kakadu/prog/ocaml/oasis-0.3.0~rc6/src/oasis/OASISGettext.ml" *)
   
@@ -558,6 +558,7 @@ let package_default =
           ("sdldemoFPS", ["helpers"]);
           ("sdldemo1", ["helpers"; "lib"]);
           ("sdldemo", ["helpers"; "lib"]);
+          ("sdlTextDemo", ["helpers"]);
           ("demo", ["lib"])
        ];
      }
@@ -565,6 +566,6 @@ let package_default =
 
 let dispatch_default = MyOCamlbuildBase.dispatch_default package_default;;
 
-# 569 "myocamlbuild.ml"
+# 570 "myocamlbuild.ml"
 (* OASIS_STOP *)
 Ocamlbuild_plugin.dispatch dispatch_default;;
